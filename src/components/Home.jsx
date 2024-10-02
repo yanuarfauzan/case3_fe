@@ -131,7 +131,7 @@ const Home = () => {
                     <div className="md:flex justify-between max-w-screen-xl mx-auto py-8 px-4 gap-4 mb-8">
                         <div className="content-center w-1/2 p-4">
                             <h2 className="text-dark-900 dark:text-dark text-3xl md:text-5xl font-extrabold mb-2">
-                                Menyediakan berbagai hidangan!!
+                                Menyediakan berbagai indomie !!
                             </h2>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui itaque magni, illo amet esse iure
@@ -142,7 +142,7 @@ const Home = () => {
                         <div className="flex justify-center w-1/2">
                             <div className="relative card-menu w-80 h-80 rounded-full">
                                 <img
-                                    src="/assets/img/indomie.png"
+                                    src="/assets/img/indomie_goreng.png"
                                     alt="foto indomie goreng"
                                     className="absolute top-0 left-1/2 w-40 transform -translate-x-1/2 -translate-y-12"
                                 />

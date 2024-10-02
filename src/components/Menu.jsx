@@ -103,21 +103,26 @@ const Menu = () => {
     }
 
     const handleOrder = () => {
-        // Format teks pesan
         const message = selectedItems.map(item => {
             const price = typeof item.price === 'string' ? parseFloat(item.price.replace(/[^\d.-]/g, '')) : item.price;
             return `${item.name} - ${formatPrice(price)} x ${item.pivot.qty} ${item.category.name === 'makanan' ? (item.pivot.level === "tidak" ? "= tidak pedas" : '= ' + item.pivot.level) : ''}`;
         }).join('\n');
 
-        // Nomor WhatsApp tujuan (gunakan format internasional)
         const phoneNumber = '628561179607'; // Ganti dengan nomor yang diinginkan
 
-        // URL WhatsApp
         const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message + '\nberikut lokasi saya saat ini (kirim share lok)')}`;
 
-        // Arahkan ke URL WhatsApp
         window.open(whatsappUrl, '_blank');
     };
+
+    const favHandle = async (id) => {
+        const response = await axios.get(`http://localhost:8000/api/addToFav/${id}`, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        });
+        console.log(response);
+    }
 
     useEffect(() => {
         getItems();
@@ -195,12 +200,12 @@ const Menu = () => {
                                         </div>
                                     </div>
                                     <div className="flex justify-between items-center">
-                                        <a
-                                            href="#"
+                                        <button
+                                            onClick={() => favHandle(item.id)}
                                             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-full bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
                                         >
                                             <i className="bi bi-heart text-2xl"></i>
-                                        </a>
+                                        </button>
                                         <span>
                                             <strong>{formatPrice(item.price)} </strong>
                                         </span>
