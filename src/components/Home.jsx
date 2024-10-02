@@ -33,7 +33,7 @@ const Home = () => {
                             </a>
                         </div>
                         <div className="md:flex-1">
-                            <img src="/assets/img/hero.png" alt="" />
+                            <img src="/assets/img/nasi_goreng.png" alt="" />
                         </div>
                     </div>
 
